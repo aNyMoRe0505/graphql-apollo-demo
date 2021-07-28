@@ -29,3 +29,17 @@ export const ArticleQuery = gql`
     }
   }
 `;
+
+export const ProductQuery = gql`
+  query Products {
+    products {
+      id
+      name
+      colors {
+        id
+        color
+        isPrimary
+      }
+    }
+  }
+`;

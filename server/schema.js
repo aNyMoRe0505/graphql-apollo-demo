@@ -6,6 +6,7 @@ import {
 // Queries
 import { banners } from './queries/Banner';
 import { article, articles } from './queries/Article';
+import { products } from './queries/Product';
 
 // Mutations
 import { createArticle, editArticleContent } from './mutations/Article';
@@ -18,6 +19,7 @@ export default new GraphQLSchema({
       banners,
       article,
       articles,
+      products,
     },
   }),
   mutation: new GraphQLObjectType({
