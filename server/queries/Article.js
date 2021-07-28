@@ -1,18 +1,25 @@
-import { GraphQLList } from 'graphql';
+import fs from 'fs';
+import { GraphQLList, GraphQLNonNull, GraphQLInt } from 'graphql';
 
 import { articleType } from '../types/Article';
 
-const articleData = [{
-  id: 1,
-  content: 'yoyoyo',
-}, {
-  id: 2,
-  content: 'hehehe',
-}];
+export const article = {
+  type: articleType,
+  args: {
+    articleId: {
+      type: new GraphQLNonNull(GraphQLInt),
+    },
+  },
+  resolve: (parent, args) => {
+    const articleData = JSON.parse(fs.readFileSync(`${process.cwd()}/mocks/Article.json`, 'utf8'));
+    return articleData.find(article => article.id === args.articleId);
+  },
+};
 
 export const articles = {
   type: new GraphQLList(articleType),
-  resolve: async () => {
+  resolve: () => {
+    const articleData = JSON.parse(fs.readFileSync(`${process.cwd()}/mocks/Article.json`, 'utf8'));
     return articleData;
   },
 };
