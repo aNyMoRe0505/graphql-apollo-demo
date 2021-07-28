@@ -1,17 +1,33 @@
-import { useQuery } from '@apollo/client';
+import {
+  BrowserRouter, 
+  Route,
+  Switch,
+  Link,
+} from 'react-router-dom';
 
-import { BannersQuery } from './queries/Banner';
+import Query from './Page/Query';
+import Mutation from './Page/Mutation';
 
 function App() {
-  const { loading, data } = useQuery(BannersQuery);
-
-  console.log('loading', loading);
-  console.log('data', data);
 
   return (
-    <div>
-      hello
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/mutation">
+          <Mutation />
+        </Route>
+        <Route path="/query">
+          <Query />
+        </Route>
+        <Route path="/">
+          <>
+            <h1>我是 Root</h1> 
+            <Link to="/query">前往Query</Link>
+            <Link to="/mutation">前往Mutation</Link>
+          </>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

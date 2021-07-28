@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { GraphQLList, GraphQLNonNull, GraphQLInt } from 'graphql';
+import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql';
 
 import { articleType } from '../types/Article';
 
@@ -7,7 +7,7 @@ export const article = {
   type: articleType,
   args: {
     articleId: {
-      type: new GraphQLNonNull(GraphQLInt),
+      type: new GraphQLNonNull(GraphQLString),
     },
   },
   resolve: (parent, args) => {

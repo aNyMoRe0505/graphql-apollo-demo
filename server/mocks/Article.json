@@ -1,18 +1,1 @@
-[
-  {
-    "id":"1",
-    "content":"yoyoyo",
-    "author": {
-      "id":"1",
-      "name":"Paul Wang"
-    }
-  },
-  {
-    "id":"2",
-    "content":"heheheh",
-    "author": {
-      "id":"2",
-      "name":"lalafell"
-    }
-  }
-]
+[{"id":"2","content":"heheheh","author":{"id":"2","name":"lalafell"}},{"id":"1","content":"zxc","author":{"id":"1","name":"Paul Wang"}}]
